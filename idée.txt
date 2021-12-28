@@ -1,0 +1,17 @@
+projet 2itech
+
+inscription/ connexion/ deconnexion
+afficher profil: (et ses publications)
+modifier profil: (pseudo, email, password)
+notez un utilisateur: (apres une vente)
+bloquer un utilisateur
+signaler un utilisateur
+
+publier un produit:(image, titre, description, prix, marque, taille, couleurs, quantité?)
+modifier un produit
+supprimer un produit
+afficher produit
+
+rechercher des produits: (par titres/nom, categories, prix)
+rechercher des utilisateurs: (par speudo)
+
