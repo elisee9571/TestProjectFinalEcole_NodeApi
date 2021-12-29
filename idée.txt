@@ -4,8 +4,9 @@ inscription/ connexion/ deconnexion
 afficher profil: (et ses publications)
 modifier profil: (pseudo, email, password)
 notez un utilisateur: (apres une vente)
-bloquer un utilisateur
-signaler un utilisateur
+suivre des utilisateurs
+chat de discussion entre utilisateurs
+bloquer un utilisateur?
 
 publier un produit:(image, titre, description, prix, marque, taille, couleurs, quantité?)
 modifier un produit
