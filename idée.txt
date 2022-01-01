@@ -1,18 +1,27 @@
-projet 2itech
+                            projet 2itech
 
-inscription/ connexion/ deconnexion
-afficher profil: (et ses publications)
-modifier profil: (pseudo, email, password)
+==============================================================================
+inscription/ connexion/ deconnexion -
+afficher profil: (et ses publications) -
+modifier profil: (pseudo, email, password) -
+
+===============================================================================
 notez un utilisateur: (apres une vente)
 suivre des utilisateurs
 chat de discussion entre utilisateurs
 bloquer un utilisateur?
 
-publier un produit:(image, titre, description, prix, marque, taille, couleurs, quantité?)
-modifier un produit
-supprimer un produit
-afficher produit
+===============================================================================
+publier un produit:(image, titre, description, prix, marque, taille, couleurs, quantité?) -
+modifier un produit -
+supprimer un produit -
+afficher produit -
 
-rechercher des produits: (par titres/nom, categories, prix)
-rechercher des utilisateurs: (par speudo)
+===============================================================================
+rechercher des produits: (par titres, categories, prix) -
+rechercher des utilisateurs: (par speudo) -
+
+===============================================================================
+update model.Product: add categories
+update model.User: add rating, image or create model.Rating?
 
