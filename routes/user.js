@@ -10,6 +10,7 @@ router.put("/profil/update", auth, userCtrl.updateProfil);
 router.put("/profil/newPassword", auth, userCtrl.newPassword);
 router.put("/profil/updatePassword", auth, userCtrl.updatePassword);
 router.get("/profil", auth, userCtrl.getProfil);
+router.post("/findUsers", auth, userCtrl.findUsers);
 router.post("/logout", auth, userCtrl.logout);
 
 module.exports = router;

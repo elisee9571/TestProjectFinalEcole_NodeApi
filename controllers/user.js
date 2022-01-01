@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const session = require("express-session");
 
 const User = require("../models/User");
+const Product = require("../models/Product");
 
 exports.signup = (req, res, next) => {
   bcrypt
@@ -56,16 +57,30 @@ exports.login = (req, res, next) => {
 
 exports.getProfil = (req, res, next) => {
   User.findOne({ _id: req.session.user._id })
-    .then((user) =>
-      res.status(200).json({
-        user: {
-          _id: user._id,
-          speudo: user.speudo,
-          email: user.email,
-        },
-      })
-    ) //Success
+    .then((user) => {
+      if (!user) {
+        return res.status(401).json({ error: "User Not Found!" }); // Unauthorized
+      }
+      Product.find({ userId: new RegExp(req.session.user._id, "i") })
+        .then((products) => {
+          res.status(200).json({
+            user: {
+              _id: req.session.user._id,
+              speudo: user.speudo,
+              email: user.email,
+            },
+            products: products,
+          });
+        })
+        .catch((err) => res.status(400).json({ err })); //Bad Request
+    }) //Success
     .catch((err) => res.status(400).json({ err })); //Bad Request
+};
+
+exports.findUsers = (req, res, next) => {
+  User.find({ speudo: new RegExp(req.body.speudo, "i") })
+    .then((users) => res.status(200).json({ users })) // Success
+    .catch((err) => res.status(400).json({ err })); // Bad Request
 };
 
 exports.updateProfil = (req, res, next) => {

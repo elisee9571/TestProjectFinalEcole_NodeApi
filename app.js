@@ -24,15 +24,7 @@ app.use(session({ secret: "secret", saveUninitialized: true, resave: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use((req, res, next) => {
-  app.locals.user = req.session.user;
-  next();
-});
-
-/**
- * CORS signifie « Cross Origin Resource Sharing ».
- * Il s'agit d'un système de sécurité qui, par défaut, bloque les appels HTTP entre des serveurs différents.
- * */
+//Set Header for CORS
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(

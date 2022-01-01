@@ -6,7 +6,7 @@ exports.createProduct = (req, res, next) => {
     title: req.body.title,
     description: req.body.description,
     price: req.body.price,
-    userId: req.body.userId,
+    userId: req.session.user._id,
   });
 
   product
@@ -45,6 +45,12 @@ exports.getOneProduct = (req, res, next) => {
 
 exports.getAllProduct = (req, res, next) => {
   Product.find()
+    .then((products) => res.status(200).json({ products })) // Success
+    .catch((err) => res.status(400).json({ err })); // Bad Request
+};
+
+exports.findProducts = (req, res, next) => {
+  Product.find({ title: new RegExp(req.body.title, "i") })
     .then((products) => res.status(200).json({ products })) // Success
     .catch((err) => res.status(400).json({ err })); // Bad Request
 };
