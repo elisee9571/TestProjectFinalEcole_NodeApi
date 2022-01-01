@@ -65,7 +65,7 @@ exports.getProfil = (req, res, next) => {
         .then((products) => {
           res.status(200).json({
             user: {
-              _id: req.session.user._id,
+              _id: user._id,
               speudo: user.speudo,
               email: user.email,
             },
@@ -77,6 +77,7 @@ exports.getProfil = (req, res, next) => {
     .catch((err) => res.status(400).json({ err })); //Bad Request
 };
 
+// To improve for sercurity users on then()
 exports.findUsers = (req, res, next) => {
   User.find({ speudo: new RegExp(req.body.speudo, "i") })
     .then((users) => res.status(200).json({ users })) // Success
@@ -87,7 +88,7 @@ exports.updateProfil = (req, res, next) => {
   User.updateOne(
     { _id: req.session.user._id },
     {
-      _id: req.session.user._id,
+      _id: req.body.user._id,
       speudo: req.body.speudo,
       email: req.body.email,
     }
@@ -105,7 +106,7 @@ exports.newPassword = (req, res, next) => {
           User.updateOne(
             { _id: req.session.user._id },
             {
-              _id: req.session.user._id,
+              _id: req.body.user._id,
               password: hash,
             }
           )
@@ -137,7 +138,7 @@ exports.updatePassword = (req, res, next) => {
                   User.updateOne(
                     { _id: req.session.user._id },
                     {
-                      _id: req.session.user._id,
+                      _id: req.body.user._id,
                       password: hash,
                     }
                   )
